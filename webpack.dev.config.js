@@ -15,9 +15,6 @@ module.exports = Object.assign({},config, {
   module: {
     rules: [
       ...config.module.rules,
-      {
-        test: /\.css$/,
-      }
     ]
   },
   devtool: 'source-map',

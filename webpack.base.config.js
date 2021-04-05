@@ -36,12 +36,33 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: [
-					"style-loader",
-					"vue-style-loader",
-					"css-loader"
-				]
-			},
+				oneOf: [
+					// 这里匹配 `<style module>`
+					{
+					  resourceQuery: /module/,
+					  use: [
+						"style-loader",
+					//	'vue-style-loader',
+						{
+						  loader: 'css-loader',
+						  options: {
+							modules: {
+								localIdentName: '[local]_[hash:base64:8]'
+							},
+						  }
+						}
+					  ]
+					},
+					// 这里匹配普通的 `<style>` 或 `<style scoped>`
+					{
+					  use: [
+						"style-loader",
+					//	'vue-style-loader',
+						'css-loader'
+					  ]
+					}
+				  ],
+			  },
 			{
 				test: /\.(png|jpg|jpeg|gif|eot|svg|ttf|woff)$/,
 				use: ['file-loader?name=[hash:base64:7].[ext]'],

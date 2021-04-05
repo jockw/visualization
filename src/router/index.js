@@ -6,11 +6,14 @@ reqPages.keys().forEach(key => {
   const name = key.replace('./', '');
   const component = reqPages(key);
   const com = () => import('../components/' + name);
-  routeList.push({
-    path: key.slice(1, -'.vue'.length) + (component.route || ''),
-    component: com,
-  })
+  if (name.endsWith('view.vue')) {
+	routeList.push({
+		path: key.slice(1, -'view.vue'.length) + (component.route || ''),
+		component: com,
+	})
+  }
 });
+console.log(routeList)
 const login = () => import('../page/login');
 const manage = () => import('../page/nav');
 const home = () => import('../page/home');
@@ -34,20 +37,22 @@ const routes = [
 		path: '/login',
 		component: login
 	},
-  {
-    path: '/',
-    component: manage,
-    name: '',
-    children: [{
-      path: '',
-      component: home,
-      meta: [],
-    }, {
-      path: 'uploadImg',
-      component: uploadImg,
-      meta: [],
-    }, ...routeList]
-  }
+	{
+		path: '/',
+		component: manage,
+		name: '',
+		children: [{
+			path: '',
+			component: home,
+			meta: [],
+			}, {
+			path: 'uploadImg',
+			component: uploadImg,
+			meta: [],
+			}, 
+			...routeList,
+		]
+	}
 ]
 		// children: [{
 		// 	path: '',
