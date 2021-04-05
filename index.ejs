@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智慧社区</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="//unpkg.com/iview/dist/styles/iview.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <style>
+        .ivu-menu-dark{
+            background: #191a23;
+        }
+        .ivu-menu {
+            display: block;
+            margin: 0;
+            padding: 0;
+            outline: none;
+            list-style: none;
+            /* color: #515a6e; */
+            font-size: 14px;
+            position: relative;
+            z-index: 900;
+        }
+        .ivu-menu-dark.ivu-menu-vertical .ivu-menu-opened {
+            background: #101117;
+        }
+        .ivu-menu-dark.ivu-menu-vertical .ivu-menu-item:hover, .ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu-title:hover{
+            background-color: #191a23;
+        }
+        .ivu-menu-dark.ivu-menu-vertical .ivu-menu-opened .ivu-menu-submenu-title{
+            background-color: #191a23;
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdn.bootcss.com/echarts/3.5.4/echarts.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.1.2/vue-router.min.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="//unpkg.com/iview/dist/iview.min.js"></script>
+</body>
+</html>
